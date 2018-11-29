@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post">
+
+        First Name:<br>
+        <input type = "text" name = "text1"><br>
+        Last Name:<br>
+        <input type = "text" name = "text2"><br>
+        Preferred Email:<br>
+        <input type = "text" name = "email"><br>
+
+        What continent would you like to travel to?<br>
+        <input type = "radio" name = "destination" value = "Africa">Africa<br>
+        <input type = "radio" name = "destination" value = "Asia">Asia<br>
+        <input type = "radio" name = "destination" value = "Europe">Europe<br>
+        <input type = "radio" name = "destination" value = "North America">North America<br>
+        <input type = "radio" name = "destination" value = "South America">South America<br>
+        <input type = "radio" name = "destination" value = "Australia/Oceania">Australia/Oceania<br>
+        <input type = "radio" name = "destination" value = "Antartica">Antartica<br>
+        Preferred number of travel companions?<br>
+        <input type = "radio" name = "number" value = "1">1<br>
+        <input type = "radio" name = "number" value = "2">2<br>
+        <input type = "radio" name = "number" value = "3">3<br>
+        <input type = "radio" name = "number" value = "4">4<br>
+        <input type = "radio" name = "number" value = "5">5<br>
+        <input type = "radio" name = "number" value = "greater5">5<br>
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        What is your ideal vacation?<br>
+        <select name = "idealVaycay">
+        <option value="beach">Lounging on the beach</option>
+        <option value="adventure">Adventure</option>
+        <option value="culture">Learning new cultures</option>
+        <option value="mix"> A mix</option>
+        </select>
+        <br><button class="btn btn-outline-dark" type="submit">Submit</button><br>
+
+    </form>
+
+
+    <script>
+
+        document.querySelector('form').onsubmit = function()
+        {
+
+            if (!document.querySelector('input[name=text1]').value)
+            {
+                alert("You must provide your first name!");
+                return false;
+            }
+            if (!document.querySelector('input[name=text2]').value)
+            {
+                alert("You must provide your last name!");
+                return false;
+            }
+            if (!document.querySelector('input[name=email]').value)
+            {
+                alert("You must provide your email!");
+                return false;
+            }
+            if (!document.querySelector('input[name=destination]').value)
+            {
+                alert("You must provide all information on your favorite sport!");
+                return false;
+            }
+            if (!document.querySelector('input[name=number]').value)
+            {
+                alert("You must provide all information on your favorite book!");
+                return false;
+            }
+            if (!document.querySelector('select[name=idealVaycay]').value)
+            {
+                alert("You must provide your favorite team!");
+                return false;
+            }
+        }
+
+    </script>
+
+{% endblock %}
